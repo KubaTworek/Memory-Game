@@ -1,0 +1,23 @@
+.label {
+    -fx-font-family: "sans-serif";
+    -fx-font-size: 24;
+}
+#titleText {
+    -fx-font-weight: bold;
+}
+#sNumber {
+    -fx-font-size: 18;
+}
+.button{
+    -fx-font: 16 "sans-serif";
+    -fx-font-weight: bold;
+    -fx-pref-width: 200;
+    -fx-border-size: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+}
+.button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: blue;
+    -fx-cursor: hand;
+}
