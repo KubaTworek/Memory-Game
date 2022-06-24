@@ -26,7 +26,7 @@ public class GameOptionController {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("newGame-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 480);
-        scene.getStylesheets().add(getClass().getResource("style.css").toString());
+        scene.getStylesheets().add(getClass().getResource("main.css").toString());
 
         stage.setTitle("Game");
         stage.setScene(scene);

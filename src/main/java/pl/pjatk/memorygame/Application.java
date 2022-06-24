@@ -13,8 +13,8 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("mainPage-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 640, 480);
-        scene.getStylesheets().add(getClass().getResource("style.css").toString());
+        Scene scene = new Scene(fxmlLoader.load(), 840, 440);
+        scene.getStylesheets().add(getClass().getResource("main.css").toString());
 
         PrimaryStage = stage;
         stage.setTitle("Memory The Game");
