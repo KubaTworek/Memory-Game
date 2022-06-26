@@ -1,14 +1,10 @@
 package pl.pjatk.memorygame;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -16,8 +12,10 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import java.util.Scanner;
 
 public class Controller {
 
@@ -30,7 +28,6 @@ public class Controller {
     @FXML
     public Label sNumber;
 
-
     @FXML
     public void onNewGameBtnClick(ActionEvent actionEvent) throws IOException {
         creatingNewGameOptions();
@@ -39,7 +36,6 @@ public class Controller {
     @FXML
     public void onHighScoresBtnClick(ActionEvent actionEvent) throws IOException {
         creatingHighScoreStage();
-
     }
 
     @FXML
@@ -79,19 +75,7 @@ public class Controller {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("newGameOptions-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 340, 180);
-        scene.getStylesheets().add(getClass().getResource("gameOption.css").toString());
-
-        final ToggleGroup group = new ToggleGroup();
-
-        RadioButton rb1 = new RadioButton("4x3");
-        rb1.setToggleGroup(group);
-        rb1.setSelected(true);
-
-        RadioButton rb2 = new RadioButton("4x4");
-        rb2.setToggleGroup(group);
-
-        RadioButton rb3 = new RadioButton("5x4");
-        rb3.setToggleGroup(group);
+        scene.getStylesheets().add(getClass().getResource("main.css").toString());
 
         stage.setTitle("New Game");
         stage.setScene(scene);
@@ -103,8 +87,15 @@ public class Controller {
         });
     }
 
-    private String readHighScores(){
-        return "Player 1 (Time: 43:12, grid 4x4)" + "\n" + "Player 1 (Time: 43:12, grid 4x4)" + "\n" + "Player 1 (Time: 43:12, grid 4x4)" + "\n" + "Player 1 (Time: 43:12, grid 4x4)" + "\n";
-    }
+    private String readHighScores() throws FileNotFoundException {
+        File file = new File("highscores.txt");
+        Scanner in = new Scanner(file);
 
+        StringBuilder highScores = new StringBuilder("");
+        while(in.hasNextLine()){
+            highScores.append(in.nextLine() + '\n');
+        }
+
+        return highScores.toString();
+    }
 }

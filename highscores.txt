@@ -1,0 +1,6 @@
+Jakub (Time: 0:3, grid 2x2)
+Kuba (Time: 0:3, grid 2x3)
+Anna (Time: 0:5, grid 2x4)
+Jakub (Time: 0:11, grid 3x4)
+Gabrysia (Time: 0:12, grid 2x5)
+Andrzej (Time: 0:22, grid 3x4)
