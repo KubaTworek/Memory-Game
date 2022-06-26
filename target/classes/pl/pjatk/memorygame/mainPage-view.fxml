@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
@@ -12,11 +11,10 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="titleText" text="Memory The Game"/>
-    <Label fx:id="sNumber" text="s24646"/>
-    <Button fx:id="newGameBtn" text="New Game" onAction="#onNewGameBtnClick"/>
-    <Button fx:id="highScoresBtn" text="High Scores" onAction="#onHighScoresBtnClick"/>
-    <Button fx:id="exitBtn" text="Exit" onAction="#onExitBtnClick"/>
-
+    <Label id="title-text" styleClass="label-text" text="Memory The Game"/>
+    <Label id="sNumber" styleClass="label-text" text="s25646"/>
+    <Button fx:id="newGameBtn" styleClass="main-button" text="New Game" onAction="#onNewGameBtnClick"/>
+    <Button fx:id="highScoresBtn" styleClass="main-button" text="High Scores" onAction="#onHighScoresBtnClick"/>
+    <Button fx:id="exitBtn" styleClass="main-button" text="Exit" onAction="#onExitBtnClick"/>
 </VBox>
 
