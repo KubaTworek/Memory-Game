@@ -16,3 +16,8 @@
     -fx-margin: 0;
     -fx-pref-width: 10;
 }
+#playBtn{
+    -fx-cursor: hand;
+    -fx-font-size: 14;
+    -fx-padding: 5 10;
+}

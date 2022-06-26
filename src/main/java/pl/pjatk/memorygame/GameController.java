@@ -14,15 +14,14 @@ public class GameController {
 
     @FXML
     public void initialize() throws IOException {
-        
         endGame();
     }
 
-    public void endGame() throws IOException {
+    static public void endGame() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("askForName-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 480);
-        scene.getStylesheets().add(getClass().getResource("main.css").toString());
+        scene.getStylesheets().add(GameController.class.getResource("main.css").toString());
 
         stage.setTitle("Rank");
         stage.setScene(scene);
