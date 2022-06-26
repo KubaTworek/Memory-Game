@@ -68,7 +68,7 @@ public class Controller {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("newGame-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 340, 180);
-        //scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toString());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toString());
 
         stage.setTitle("New Game");
         stage.setScene(scene);

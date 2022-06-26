@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
-import pl.pjatk.memorygame.Application;
 import pl.pjatk.memorygame.Model.RecordScore;
 
 import java.io.*;
@@ -86,8 +85,6 @@ public class GameController {
 
         startTimer(timer);
 
-        ImageView card = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/karta.png"))));
-
         for (int i = 0; i < widthGaps * heightGaps; i++) {
             Button button = new Button();
             button.setPrefHeight(125);
@@ -95,14 +92,16 @@ public class GameController {
             String imgSource = imagesArr.get(i);
             button.setId(imgSource);
             buttonList.add(button);
+            Image card = new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/karta.png")));
+            button.setGraphic(new ImageView(card));
             button.setStyle("-fx-cursor: hand");
 
             button.setOnAction(event -> {
                 counter.getAndIncrement();
 
                 if (counter.get() % 2 == 1) {
-                    buttonList.get(lastIndex.intValue()).setGraphic(card);
-                    buttonList.get(penultimateIndex.intValue()).setGraphic(card);
+                    buttonList.get(lastIndex.intValue()).setGraphic(new ImageView(card));
+                    buttonList.get(penultimateIndex.intValue()).setGraphic(new ImageView(card));
                 }
 
                 Button clickedButton = (Button) event.getSource();
@@ -176,7 +175,7 @@ public class GameController {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("askForName-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 360, 180);
-        //scene.getStylesheets().add(Objects.requireNonNull(GameController.class.getResource("main.css")).toString());
+        scene.getStylesheets().add(Objects.requireNonNull(GameController.class.getResource("main.css")).toString());
 
         stage.setTitle("Rank");
         stage.setScene(scene);
