@@ -135,6 +135,8 @@ public class GameController {
         }
 
         Scene scene = new Scene(flowPane, 141*heightGaps, 133*widthGaps);
+
+
         stage.setTitle("Game");
         stage.setScene(scene);
         stage.show();
@@ -150,8 +152,13 @@ public class GameController {
                     e.printStackTrace();
                 }
                 seconds++;
+                if(seconds > 59){
+                    seconds = 0;
+                    minutes++;
+                }
                 int finalSeconds = seconds;
-                Platform.runLater(() -> timer.setText(minutes + ":" + finalSeconds));
+                String timeStr = finalSeconds < 10 ? (minutes + ":0" + finalSeconds) : (minutes + ":" + finalSeconds);
+                Platform.runLater(() -> timer.setText(timeStr));
             }
         });
         timerThread.start();

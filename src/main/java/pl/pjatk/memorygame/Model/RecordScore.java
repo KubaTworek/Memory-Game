@@ -16,7 +16,9 @@ public class RecordScore {
     }
 
     private int calculateScore(){
-        return 0;
+        String[] timeArr = time.split(":");
+        int seconds = Integer.parseInt(timeArr[0])*60 + Integer.parseInt(timeArr[1]);
+        return this.width*this.height*100 / seconds;
     }
 
     @Override
